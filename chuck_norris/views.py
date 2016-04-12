@@ -1,6 +1,5 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.http import HttpResponse
 import urllib2, json, redis
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -19,3 +18,4 @@ def joke(request):
 	#http://stackoverflow.com/questions/9312838/checking-if-a-value-exists-in-a-list-already-redis
 	r.lrem(jokes, 1, joke)
 	r.rpush(jokes, joke)
+	return HttpResponse(response)
