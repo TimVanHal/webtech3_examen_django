@@ -1,0 +1,5 @@
+<form action="{% url 'chuck_norris:joke' %}" method=post>
+{% csrf_token %}
+<input type="text" name="firstname" id="firstname" />
+<input type="text" name="lastname" id="lastname" />
+<input type="submit" value="Submit">
